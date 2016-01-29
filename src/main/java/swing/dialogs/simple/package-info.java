@@ -1,0 +1,4 @@
+/**
+ *
+ */
+package swing.dialogs.simple;
