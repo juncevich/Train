@@ -1,0 +1,4 @@
+/**
+ *
+ */
+package swing.paint;
