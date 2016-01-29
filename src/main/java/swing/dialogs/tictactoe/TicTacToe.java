@@ -43,8 +43,14 @@ public final class TicTacToe extends JFrame {
      */
     private enum State { BLANK, XX, OO }
 
+    /**
+     * Ширина окна.
+     */
     private static final int WINDOW_WIDTH = 200;
-    private static final int WINDOW_HEIGTH = 200;
+    /**
+     * Высота окна.
+     */
+    private static final int WINDOW_HEIGHT = 200;
     /**
      * Всплывающее окно, с
      * ячейками.
@@ -81,36 +87,54 @@ public final class TicTacToe extends JFrame {
             setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         }
 
+        /**
+         * С помощью механизма
+         * внутренних классов ToeButton
+         * снова обращается к родительскому
+         * окну и изменяет результат
+         * соответствующего хода. Если
+         * на кнопке уже отображается
+         * "крестик" или "нолик" происходит
+         * замена текущего состояния.
+         */
         class ToeButton extends JPanel {
+            /**
+             * Стартовое состояние.
+             */
             private State state = State.BLANK;
 
+            /**
+             * Добавляет слушателя к кнопке,
+             * который следит за нажатием
+             * кнопки мыши.
+             */
             public ToeButton() {
-                addMouseListener(new ML());
+                addMouseListener(new MouseListener());
             }
 
             /**
              * Метод рисует вокруг панели
              * прямоугольую рамку,
              * а так же "крустик" или "нолик".
-             * @param g графический объект.
+             * @param graphics графический объект.
              */
-            public void paintComponent(final Graphics g) {
-                super.paintComponent(g);
+            public void paintComponent(final Graphics graphics) {
+                super.paintComponent(graphics);
                 int
                         x1 = 0, y1 = 0,
                         x2 = getSize().width - 1,
                         y2 = getSize().height - 1;
-                g.drawRect(x1, y1, x2, y2);
+                graphics.drawRect(x1, y1, x2, y2);
                 x1 = x2 / 4;
                 y1 = y2 / 4;
-                int wide = x2 / 2, high = y2 / 2;
+                final int wide = x2 / 2, high = y2 / 2;
                 if (state == State.XX) {
-                    g.drawLine(x1, y1, x1 + wide, y1 + high);
-                    g.drawLine(x1, y1 + high, x1 + wide, y1);
+                    graphics.drawLine(x1, y1, x1 + wide, y1 + high);
+                    graphics.drawLine(x1, y1 + high, x1 + wide, y1);
                 }
 
                 if (state == State.OO) {
-                    g.drawOval(x1, y1, x1 + wide / 2, y1 + high / 2);
+                    graphics.drawOval(x1, y1, x1 + wide / 2, y1 + high / 2);
                 }
 
             }
@@ -126,7 +150,7 @@ public final class TicTacToe extends JFrame {
              * устанавливается состояние
              * кнопки ToeButton.
              */
-            class ML extends MouseAdapter {
+            class MouseListener extends MouseAdapter {
                 @Override
                 public void mousePressed(final MouseEvent e) {
                     if (state == State.BLANK) {
@@ -141,28 +165,46 @@ public final class TicTacToe extends JFrame {
         }
     }
 
-    private class BL implements ActionListener {
+    /**
+     * Класс реализует интерфейс
+     * <Code>ActionListener</Code>.
+     * Получает значения строк и столбцов.
+     * Отображает окно с ячейками
+     * и заданными параметрами.
+     */
+    private class ButtonListener implements ActionListener {
         @Override
         public void actionPerformed(final ActionEvent e) {
-            JDialog d = new ToeDialog(
-                    new Integer(rows.getText()),
-                    new Integer(cols.getText()));
+            final JDialog d = new ToeDialog(
+                    Integer.valueOf(rows.getText()),
+                    Integer.valueOf(cols.getText()));
             d.setVisible(true);
         }
     }
+
+    /**
+     * Конструктор создает окно с
+     * двумя текстовыми полями и
+     * кнопку, для открытия диалога.
+     */
     private TicTacToe() {
-        JPanel p = new JPanel();
+        final JPanel p = new JPanel();
         p.setLayout(new GridLayout(2, 2));
         p.add(new JLabel("Rows", JLabel.CENTER));
         p.add(rows);
         p.add(new JLabel("Columns", JLabel.CENTER));
         p.add(cols);
         add(p, BorderLayout.NORTH);
-        JButton b = new JButton("go");
-        b.addActionListener(new BL());
+        final JButton b = new JButton("go");
+        b.addActionListener(new ButtonListener());
         add(b, BorderLayout.SOUTH);
     }
-    public static void main(final String[] args) {
-        run(new TicTacToe(), WINDOW_WIDTH, WINDOW_HEIGTH);
+
+    /**
+     * Main method.
+     * @param args main arguments.
+     */
+    public static void main(final String... args) {
+        run(new TicTacToe(), WINDOW_WIDTH, WINDOW_HEIGHT);
     }
 }
