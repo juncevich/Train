@@ -10,7 +10,7 @@ public class OrderedApp {
     /**
      * Main method.
      *
-     * @param args args.
+     * @param args args .
      */
     public static void main(final String[] args) {
         int maxSize = 100;             // array size
