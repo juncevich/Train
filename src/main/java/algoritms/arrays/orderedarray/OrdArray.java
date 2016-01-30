@@ -1,4 +1,4 @@
-package algoritms.orderedarray;
+package algoritms.arrays.orderedarray;
 
 /**
  * Class, tat show ordered array.

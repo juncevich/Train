@@ -1,7 +1,7 @@
-package algoritms.orderedarray;
+package algoritms.arrays.orderedarray;
 
 
-import static algoritms.orderedarray.OrdArray.merge;
+import static algoritms.arrays.orderedarray.OrdArray.merge;
 
 /**
  * Application class.
