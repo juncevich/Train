@@ -101,9 +101,7 @@ class OrdArray {
                 break;
             }
         }
-        for (int k = nElems; k > j; k--) {   // move bigger ones up
-            a[k] = a[k - 1];
-        }
+        System.arraycopy(a, j, a, j + 1, nElems - j);
         a[j] = value;                  // insert it
         nElems++;                      // increment size
     }
@@ -130,9 +128,7 @@ class OrdArray {
                 break;
             }
         }
-        for (int k = nElems; k > curIn; k--) {   // move bigger ones up
-            a[k] = a[k - 1];
-        }
+        System.arraycopy(a, curIn, a, curIn + 1, nElems - curIn);
 
         a[curIn + 1] = value;
         nElems++;
@@ -144,16 +140,14 @@ class OrdArray {
      * @param value element.
      * @return result of operation.
      */
-    public boolean delete(final long value) {
+    public void delete(final long value) {
         final int j = find(value);
         if (j == nElems) {                 // can't find it
-            return false;
+            return;
         } else {                          // found it
-            for (int k = j; k < nElems; k++) {  // move bigger ones down
-                a[k] = a[k + 1];
-            }
+            System.arraycopy(a, j + 1, a, j, nElems - j);
             nElems--;                   // decrement size
-            return true;
+            return;
         }
     }
 

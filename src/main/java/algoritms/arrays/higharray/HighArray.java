@@ -3,11 +3,11 @@ package algoritms.arrays.higharray;
 /**
  * Class, that wrap array and show high-level working with array.
  */
-public class HighArray {
+class HighArray {
     /**
      * ref to array a.
      */
-    private long[] a;
+    private final long[] a;
     /**
      * number of data items.
      */
@@ -55,7 +55,7 @@ public class HighArray {
      * @param value deleted value.
      * @return delete status.
      */
-    public final boolean delete(final long value) {
+    public final void delete(final long value) {
         int j;
         for (j = 0; j < nElems; j++) {        // look for it
             if (value == a[j]) {
@@ -63,13 +63,11 @@ public class HighArray {
             }
         }
         if (j == nElems) {                  // can't find it
-            return false;
+            return;
         } else {                          // found it
-            for (int k = j; k < nElems; k++) { // move higher ones down
-                a[k] = a[k + 1];
-            }
+            System.arraycopy(a, j + 1, a, j, nElems - j);
             nElems--;                   // decrement size
-            return true;
+            return;
         }
     }
 
@@ -113,11 +111,11 @@ public class HighArray {
         for (long element : a
                 ) {
             int repeatCount = 0;
-            for (int i = 0; i < a.length; i++) {
-                if (element == a[i]) {
+            for (long anA : a) {
+                if (element == anA) {
                     repeatCount++;
                     if (repeatCount == 2) {
-                        System.out.println("Deleting dup: " + a[i]);
+                        System.out.println("Deleting dup: " + anA);
                         delete(element);
                     }
 
