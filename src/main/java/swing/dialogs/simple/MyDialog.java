@@ -9,7 +9,7 @@ import java.awt.FlowLayout;
 /**
  * Класс, содержит диалоговое окно.
  */
-public class MyDialog extends JDialog {
+class MyDialog extends JDialog {
     /**
      * Ширина окна.
      */

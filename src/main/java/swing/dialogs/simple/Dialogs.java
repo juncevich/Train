@@ -20,18 +20,18 @@ public class Dialogs extends JFrame {
      */
     private static final int WINDOW_HEIGHT = 75;
     /**
-     * Кнопка вызова диалога.
-     */
-    private JButton b1 = new JButton("Dialog box");
-    /**
      * Окно диалога.
      */
-    private MyDialog dlg = new MyDialog(null);
+    private final MyDialog dlg = new MyDialog(null);
 
     /**
      * Конструктор по умолчанию.
      */
-    public Dialogs() {
+    private Dialogs() {
+        /*
+      Кнопка вызова диалога.
+     */
+        JButton b1 = new JButton("Dialog box");
         b1.addActionListener(e -> dlg.setVisible(true));
         add(b1);
 

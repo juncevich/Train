@@ -14,16 +14,16 @@ import java.awt.event.ActionListener;
 import static swing.utils.SwingConsole.run;
 
 public class FileChooserTest extends JFrame {
-    private JTextField
-            fileName = new JTextField(),
-            dir = new JTextField();
-    private JButton
-            open = new JButton("Open"),
-            save = new JButton("Save");
+    private final JTextField
+            fileName = new JTextField();
+    private final JTextField dir = new JTextField();
+
     private FileChooserTest() {
         JPanel p = new JPanel();
+        JButton open = new JButton("Open");
         open.addActionListener(new OpenL());
         p.add(open);
+        JButton save = new JButton("Save");
         save.addActionListener(new SaveL());
         p.add(save);
         add(p, BorderLayout.SOUTH);

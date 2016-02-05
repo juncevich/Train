@@ -10,11 +10,11 @@ import java.awt.*;
 import static swing.utils.SwingConsole.run;
 
 public class Progress extends JFrame{
-    private JProgressBar pb = new JProgressBar();
-    private ProgressMonitor pm = new ProgressMonitor(this, "Monitoring Progress", "Test", 0, 100);
-    private JSlider sb = new JSlider(JSlider.HORIZONTAL, 0, 100, 60);
-    public Progress() {
+    private final ProgressMonitor pm = new ProgressMonitor(this, "Monitoring Progress", "Test", 0, 100);
+    private final JSlider sb = new JSlider(JSlider.HORIZONTAL, 0, 100, 60);
+    private Progress() {
         setLayout(new GridLayout(2, 1));
+        JProgressBar pb = new JProgressBar();
         add(pb);
         pm.setProgress(0);
         pm.setMillisToPopup(1000);
@@ -25,12 +25,7 @@ public class Progress extends JFrame{
         sb.setBorder(new TitledBorder("Slide me"));
         pb.setModel(sb.getModel());
         add(sb);
-        sb.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                pm.setProgress(sb.getValue());
-            }
-        });
+        sb.addChangeListener(e -> pm.setProgress(sb.getValue()));
     }
 
     public static void main(String[] args) {

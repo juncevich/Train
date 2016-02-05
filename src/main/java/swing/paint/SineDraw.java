@@ -8,7 +8,7 @@ import java.awt.Graphics;
  * Класс содержит процесс рисования
  * и связанные с ним вычисления.
  */
-public class SineDraw extends JPanel {
+class SineDraw extends JPanel {
     /**
      *
      */
