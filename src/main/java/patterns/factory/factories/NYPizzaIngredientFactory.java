@@ -3,9 +3,7 @@ package patterns.factory.factories;
 import patterns.factory.Pepperoni;
 import patterns.factory.SlicedPepperoni;
 import patterns.factory.Veggies;
-import patterns.factory.products.Cheese;
-import patterns.factory.products.Dough;
-import patterns.factory.products.Sauce;
+import patterns.factory.products.*;
 
 public class NYPizzaIngredientFactory implements PizzaIngredientFactory {
     @Override
@@ -25,8 +23,7 @@ public class NYPizzaIngredientFactory implements PizzaIngredientFactory {
 
     @Override
     public Veggies[] createVeggies() {
-        Veggies veggies[] = {new Garlic(), new Onion(), new Mushroom(), new RedPepper()};
-        return veggies;
+        return new Veggies[]{new Garlic(), new Onion(), new Mushroom(), new RedPepper()};
     }
 
     @Override

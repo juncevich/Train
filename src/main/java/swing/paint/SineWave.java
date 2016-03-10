@@ -26,7 +26,7 @@ public final class SineWave extends JFrame {
     /**
      * Ширина окна.
      */
-    private static final int HEIGTH = 700;
+    private static final int HEIGHT = 700;
     /**
      * Высота окна.
      */
@@ -56,6 +56,6 @@ public final class SineWave extends JFrame {
      * @param args и аргументы.
      */
     public static void main(final String... args) {
-        SwingConsole.run(new SineWave(), HEIGTH, WIDTH);
+        SwingConsole.run(new SineWave(), HEIGHT, WIDTH);
     }
 }

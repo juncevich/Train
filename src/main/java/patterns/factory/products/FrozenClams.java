@@ -1,4 +1,4 @@
 package patterns.factory.products;
 
-class FrozenClams implements Clams {
+public class FrozenClams implements Clams {
 }

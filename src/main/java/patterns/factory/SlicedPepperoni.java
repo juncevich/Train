@@ -1,4 +1,4 @@
 package patterns.factory;
 
-class SlicedPepperoni extends Pepperoni {
+public class SlicedPepperoni extends Pepperoni {
 }

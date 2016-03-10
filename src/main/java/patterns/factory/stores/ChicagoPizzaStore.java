@@ -10,18 +10,23 @@ public class ChicagoPizzaStore extends PizzaStore {
         Pizza pizza = null;
         PizzaIngredientFactory ingredientFactory = new NYPizzaIngredientFactory();
 
-        if (item.equals("cheese")){
-            pizza = new CheesePizza(ingredientFactory);
-            pizza.setName("Chicago Style Cheese Pizza");
-        } else if (item.equals("pepperoni")){
-            pizza = new CheesePizza(ingredientFactory);
-            pizza.setName("Chicago Style Pepperoni Pizza");
-        } else if (item.equals("clam")){
-            pizza = new CheesePizza(ingredientFactory);
-            pizza.setName("Chicago Style Clam Pizza");
-        } else if (item.equals("veggie")){
-            pizza = new CheesePizza(ingredientFactory);
-            pizza.setName("Chicago Style Veggie Pizza");
+        switch (item) {
+            case "cheese":
+                pizza = new CheesePizza(ingredientFactory);
+                pizza.setName("Chicago Style Cheese Pizza");
+                break;
+            case "pepperoni":
+                pizza = new CheesePizza(ingredientFactory);
+                pizza.setName("Chicago Style Pepperoni Pizza");
+                break;
+            case "clam":
+                pizza = new CheesePizza(ingredientFactory);
+                pizza.setName("Chicago Style Clam Pizza");
+                break;
+            case "veggie":
+                pizza = new CheesePizza(ingredientFactory);
+                pizza.setName("Chicago Style Veggie Pizza");
+                break;
         }
         return pizza;
     }

@@ -1,4 +1,4 @@
 package patterns.factory.products;
 
-class MarinaraSouse implements Sauce {
+public class MarinaraSouse implements Sauce {
 }

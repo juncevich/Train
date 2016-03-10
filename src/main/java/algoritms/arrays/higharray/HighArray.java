@@ -18,7 +18,7 @@ class HighArray {
      *
      * @param max maximum size of array.
      */
-    public HighArray(final int max) {
+    HighArray(final int max) {
         a = new long[max];                 // create the array
         nElems = 0;                        // no items yet
     }
@@ -53,7 +53,7 @@ class HighArray {
      * delete specified value.
      *
      * @param value deleted value.
-     * @return delete status.
+     *
      */
     public final void delete(final long value) {
         int j;

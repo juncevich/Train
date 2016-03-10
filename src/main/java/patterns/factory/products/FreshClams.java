@@ -1,4 +1,4 @@
 package patterns.factory.products;
 
-class FreshClams implements Clams {
+public class FreshClams implements Clams {
 }

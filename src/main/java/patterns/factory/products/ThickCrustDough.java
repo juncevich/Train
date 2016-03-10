@@ -1,4 +1,4 @@
 package patterns.factory.products;
 
-class ThickCrustDough implements Dough {
+public class ThickCrustDough implements Dough {
 }

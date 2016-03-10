@@ -2,7 +2,7 @@ package patterns.factory.products;
 
 import patterns.factory.Veggies;
 
-class Garlic extends Veggies {
+public class Garlic extends Veggies {
     public Garlic() {
     }
 }
