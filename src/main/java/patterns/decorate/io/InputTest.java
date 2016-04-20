@@ -1,9 +1,6 @@
 package patterns.decorate.io;
 
 import java.io.*;
-import java.util.ResourceBundle;
-
-import static java.lang.String.valueOf;
 
 public class InputTest {
     public static void main(String[] args) {

@@ -1,7 +1,5 @@
 package patterns.betabox;
 
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 
 public class BeatBar extends JProgressBar implements Runnable {

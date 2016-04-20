@@ -1,7 +1,7 @@
 package patterns.betabox;
 
 import javax.sound.midi.*;
-import java.util.*;
+import java.util.ArrayList;
 
 public class BeatModel implements BeatModelInterface, MetaEventListener {
     Sequencer sequencer;
