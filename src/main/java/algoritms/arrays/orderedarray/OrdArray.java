@@ -143,11 +143,9 @@ class OrdArray {
     public void delete(final long value) {
         final int j = find(value);
         if (j == nElems) {                 // can't find it
-            return;
         } else {                          // found it
             System.arraycopy(a, j + 1, a, j, nElems - j);
             nElems--;                   // decrement size
-            return;
         }
     }
 
