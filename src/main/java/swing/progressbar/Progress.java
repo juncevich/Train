@@ -3,8 +3,6 @@ package swing.progressbar;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
 
 import static swing.utils.SwingConsole.run;
