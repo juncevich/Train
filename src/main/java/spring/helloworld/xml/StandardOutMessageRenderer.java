@@ -1,6 +1,5 @@
 package spring.helloworld.xml;
 
-import org.springframework.stereotype.Service;
 import spring.helloworld.MessageProvider;
 import spring.helloworld.MessageRenderer;
 
